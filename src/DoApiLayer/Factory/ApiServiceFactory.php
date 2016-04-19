@@ -12,9 +12,8 @@ class ApiServiceFactory
     /**
      * @return ApiService
      */
-    public function getInstance()
+    public function getInstance(Config $config)
     {
-        $config = new Config();
         $curlClient = new Curl();
         $buzz = new Browser($curlClient);
         return new ApiService($config, $buzz);

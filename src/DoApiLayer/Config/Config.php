@@ -2,15 +2,14 @@
 
 namespace DoApiLayer\Config;
 
+use Symfony\Component\Yaml\Parser;
+
 class Config implements ConfigInterface
 {
     /**
      * @var array
      */
-    public static $config = [
-        'host' => 'https://api.digitalocean.com/v2',
-        'token' => ''
-    ];
+    public static $config = [];
 
     /**
      * @inheritdoc
@@ -23,6 +22,18 @@ class Config implements ConfigInterface
             return $default;
         }
         return self::$config[$key];
+    }
+
+    /**
+     * Read Config from Yaml
+     *
+     * @param $filepath
+     */
+    public function fromYaml($filepath)
+    {
+        $yaml = new Parser();
+        $data = $yaml->parse(file_get_contents($filepath));
+        self::setConfig($data['config']);
     }
 
     /**
