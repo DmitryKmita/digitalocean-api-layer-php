@@ -1,0 +1,19 @@
+{
+    "name": "dmitrykmita/do-api-layer",
+    "description": "A library that represents a layer to work easily with digital ocean api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Kmita",
+            "email": "dmitry@kmita.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "kriswallsmith/buzz": "^0.15.0",
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-0": {"DoApiLayer\\": "src/"}
+    }
+}
