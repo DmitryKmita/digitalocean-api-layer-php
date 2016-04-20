@@ -29,14 +29,14 @@ config:
 ```
 
 # Services and methods
-[R] -> token has to have read permissions, [W] -> token has to have write permissions
+(R) -> token has to have read permissions, (W) -> token has to have write permissions
 
 - Account Service ($apiService->getAccountService())
-> getAccountInfo() - returns all information about current account [R]
+> getAccountInfo() - returns all information about current account (R)
 
 - Droplet Service ($apiService->getDropletService())
-> getAllDroplets() - returns all information about all droplets created on this account [R]
-> createDroplet(Droplet $droplet) - created a droplet. Model should contain name, image, region, size. [W]
+> getAllDroplets() - returns all information about all droplets created on this account (R)
+> createDroplet(Droplet $droplet) - created a droplet. Model should contain name, image, region, size. (W)
 ```
     $droplet = new \DoApiLayer\Model\Droplet();
     $droplet->setName('Amazing Droplet');
@@ -48,7 +48,7 @@ config:
     $droplet->setRegion('region_name'); #nyc3 for example
     $result = $service->getDropletService()->createDroplet($droplet);
 ```
-> destroyDroplet($id) - destroys a droplet. Be careful with this one :) [W]
+> destroyDroplet($id) - destroys a droplet. Be careful with this one :) (W)
 
 # Work in progress, next plans
 
