@@ -28,13 +28,25 @@ config:
     $service->getAccountService()->getAccountInfo();
 ```
 
-# Services and methods
+# Services and methods ([R] -> token has to have read permissions, [W] -> token has to have write permissions)
 
 - Account Service ($apiService->getAccountService())
-> getAccountInfo() - returns all information about current account
+> getAccountInfo() - returns all information about current account [R]
 
 - Droplet Service ($apiService->getDropletService())
-> getAllDroplets() - returns all information about all droplets created on this account
+> getAllDroplets() - returns all information about all droplets created on this account [R]
+> createDroplet(Droplet $droplet) - created a droplet. Model should contain name, image, region, size. [W]
+```
+    $droplet = new \DoApiLayer\Model\Droplet();
+    $droplet->setName('Amazing Droplet');
+    $droplet->setSizeSlug('512mb');
+
+    $image = new \DoApiLayer\Model\Image();
+    $image->setName('ubuntu-14-04-x64');
+    $droplet->setImage($image);
+    $droplet->setRegion('nyc3');
+    $result = $service->getDropletService()->createDroplet($droplet);
+```
 
 # Work in progress, next plans
 
