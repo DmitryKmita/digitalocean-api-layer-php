@@ -21,7 +21,20 @@ config:
     $factory = new \DoApiLayer\Factory\ApiServiceFactory();
     $service = $factory->getInstance($config);
 ```
-- Use the service methods to work with API
+- Get the needed service depends on which entity you want to work with and use its methods
+```
+    $factory = new \DoApiLayer\Factory\ApiServiceFactory();
+    $service = $factory->getInstance($config);
+    $service->getAccountService()->getAccountInfo();
+```
+
+# Services and methods
+
+- Account Service ($apiService->getAccountService())
+> getAccountInfo() - returns all information about current account
+
+- Droplet Service ($apiService->getDropletService())
+> getAllDroplets() - returns all information about all droplets created on this account
 
 # Work in progress, next plans
 
