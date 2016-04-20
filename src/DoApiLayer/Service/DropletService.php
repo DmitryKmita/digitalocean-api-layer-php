@@ -76,6 +76,7 @@ class DropletService extends RESTService
      * Create a new droplet
      *
      * @param Droplet $droplet
+     * @return Response
      */
     public function createDroplet(Droplet $droplet)
     {
@@ -88,5 +89,22 @@ class DropletService extends RESTService
         $response = new Response();
         $response->setData($droplet);
         return $response;
+    }
+
+    /**
+     * Destroy a droplet
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function destroyDroplet($id)
+    {
+        $url = $this->host . '/droplets/' . $id;
+
+        $data = $this->delete($url);
+        if (null === $data) {
+            return true;
+        }
+        return false;
     }
 }

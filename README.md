@@ -28,7 +28,8 @@ config:
     $service->getAccountService()->getAccountInfo();
 ```
 
-# Services and methods ([R] -> token has to have read permissions, [W] -> token has to have write permissions)
+# Services and methods
+[R] -> token has to have read permissions, [W] -> token has to have write permissions
 
 - Account Service ($apiService->getAccountService())
 > getAccountInfo() - returns all information about current account [R]
@@ -47,6 +48,7 @@ config:
     $droplet->setRegion('region_name'); #nyc3 for example
     $result = $service->getDropletService()->createDroplet($droplet);
 ```
+> destroyDroplet($id) - destroys a droplet. Be careful with this one :) [W]
 
 # Work in progress, next plans
 

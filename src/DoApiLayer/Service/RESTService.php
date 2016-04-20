@@ -124,6 +124,25 @@ abstract class RESTService
     }
 
     /**
+     * Send Internal DELETE Request
+     *
+     * @param $url
+     * @param $data
+     * @param $headers
+     * @return mixed
+     */
+    protected function delete($url, $data = [], $headers = [])
+    {
+        $headers = array_merge($headers, $this->preSetHeader());
+        $response = $this->buzz->delete($url, $headers, json_encode($data));
+        $data = json_decode($response->getContent(), true);
+        if (isset($data['id'], $data['message'])) {
+            throw new RequestException($data['message']);
+        }
+        return $data;
+    }
+
+    /**
      * Set Required headers by Digital Ocean
      *
      * @return array
