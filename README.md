@@ -39,12 +39,12 @@ config:
 ```
     $droplet = new \DoApiLayer\Model\Droplet();
     $droplet->setName('Amazing Droplet');
-    $droplet->setSizeSlug('512mb');
+    $droplet->setSizeSlug('size_slug'); #512mb for example
 
     $image = new \DoApiLayer\Model\Image();
-    $image->setName('ubuntu-14-04-x64');
+    $image->setName('image_name'); #ubuntu-14-04-x64 for example
     $droplet->setImage($image);
-    $droplet->setRegion('nyc3');
+    $droplet->setRegion('region_name'); #nyc3 for example
     $result = $service->getDropletService()->createDroplet($droplet);
 ```
 
