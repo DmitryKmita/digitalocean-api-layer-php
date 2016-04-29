@@ -50,4 +50,12 @@ class ApiService
     {
         return $this->getService(DropletService::NAME);
     }
+
+    /**
+     * @return DomainService
+     */
+    public function getDomainService()
+    {
+        return $this->getService(DomainService::NAME);
+    }
 }

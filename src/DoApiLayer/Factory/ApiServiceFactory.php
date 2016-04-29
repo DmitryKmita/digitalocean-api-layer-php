@@ -7,6 +7,7 @@ use Buzz\Client\Curl;
 use DoApiLayer\Config\Config;
 use DoApiLayer\Service\AccountService;
 use DoApiLayer\Service\ApiService;
+use DoApiLayer\Service\DomainService;
 use DoApiLayer\Service\DropletService;
 
 class ApiServiceFactory
@@ -24,10 +25,12 @@ class ApiServiceFactory
 
         $accountService = new AccountService($buzz, $host, $token);
         $dropletService = new DropletService($buzz, $host, $token);
+        $domainService = new DomainService($buzz, $host, $token);
 
         $apiService = new ApiService();
         $apiService->addInternalService(AccountService::NAME, $accountService);
         $apiService->addInternalService(DropletService::NAME, $dropletService);
+        $apiService->addInternalService(DomainService::NAME, $domainService);
 
         return $apiService;
     }

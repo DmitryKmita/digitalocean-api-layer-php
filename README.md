@@ -36,6 +36,7 @@ config:
 
 - Droplet Service ($apiService->getDropletService())
 > getAllDroplets() - returns all information about all droplets created on this account (R)
+
 > createDroplet(Droplet $droplet) - created a droplet. Model should contain name, image, region, size. (W)
 ```
     $droplet = new \DoApiLayer\Model\Droplet();
@@ -52,9 +53,9 @@ config:
 
 # Work in progress, next plans
 
-- Replace static Config class by Config loader with .yml (/)
-- Separate every entity work in each service
-- Account functionality
+- Replace static Config class by Config loader with .yml (DONE)
+- Separate every entity work in each service (DONE)
+- Account functionality (DONE)
 - Droplet functionality
 - Domain functionality
 - Image functionality
