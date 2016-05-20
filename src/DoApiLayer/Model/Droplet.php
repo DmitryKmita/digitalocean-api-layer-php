@@ -6,6 +6,8 @@ namespace DoApiLayer\Model;
 
 class Droplet implements RestModel
 {
+    const STATUS_ACTIVE = 'active';
+
     /**
      * @var int
      */
@@ -424,6 +426,11 @@ class Droplet implements RestModel
     public function setTags($tags)
     {
         $this->tags = $tags;
+    }
+
+    public function isActive()
+    {
+        return ($this->status == self::STATUS_ACTIVE);
     }
 
     /**

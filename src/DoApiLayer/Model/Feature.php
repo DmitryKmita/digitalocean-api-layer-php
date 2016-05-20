@@ -11,6 +11,22 @@ class Feature implements RestModel
      */
     private $name;
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
     public function fromArray($data)
     {
         $this->name = $data;
